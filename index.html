@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
     <title>Cadastro de participantes</title>
-
     <meta charset="UTF-8">
     <meta name="description" content="Página de Inscrição para a XVI Semana de Estudos Interdisciplinares Acadêmicos">
-    <meta name="keywords" content="amostra acadêmcia">
+    <meta name="keywords" content="amostra acadêmica">
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
-    
+
 <header>
     <h1>Cadastro de participantes</h1>
     <br>
@@ -22,22 +19,18 @@
 </header>
 
 <main>
-
-    <form>
+    <form id="formCadastro">
         <fieldset class="grupo">
-
             <div class="campo">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" required>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" required>
             </div>
-
             <div class="campo">
-            <label for="sobrenome">Sobrenome:</label>
-            <input type="text" name="sobrenome" id="sobrenome" required>
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" name="sobrenome" id="sobrenome" required>
             </div>
-
         </fieldset>
-        
+
         <div class="campo">
             <label for="email">E-mail:</label>
             <input type="email" name="email" id="email" required>
@@ -48,44 +41,27 @@
                 <label for="instituicao">Instituição:</label>
                 <input type="text" name="instituicao" id="instituicao" required>
             </div>
-
             <div class="campo">
                 <label for="curso">Curso/Área de formação:</label>
                 <input type="text" name="curso" id="curso" required>
             </div>
-
         </fieldset>
-        
+
         <div class="campo">
             <label for="nivel_academico">Nível Acadêmico:</label>
-            <label>
-                <input type="radio" name="nivel_academico" value="graduacao" checked>Graduação
-            </label>
-            <label>
-                <input type="radio" name="nivel_academico" value="pos-graduacao">Pós-Graduação
-            </label>
+            <label><input type="radio" name="nivel_academico" value="graduacao" checked> Graduação</label>
+            <label><input type="radio" name="nivel_academico" value="pos-graduacao"> Pós-Graduação</label>
         </div>
 
         <fieldset class="grupo">
             <div class="campo">
-                <label for="modalidade">Qual é a sua modalidade de participação?</label>
-                <label>
-                    <input type="radio" name="modalidade" value="ouvinte" checked>Ouvinte
-                </label>
-                <label>
-                    <input type="radio" name="modalidade" value="simposio tematico">Simpósio Temático
-                </label>
-                <label>
-                    <input type="radio" name="modalidade" value="banner">Banner
-                </label>
-                <label>
-                    <input type="radio" name="modalidade" value="minicurso">Minicurso
-                </label>
-                <label>
-                    <input type="radio" name="modalidade" value="roda de conversa">Roda de Conversa
-                </label>
+                <label for="modalidade">Qual é a sua modalidade de participação?</label><br>
+                <label><input type="radio" name="modalidade" value="ouvinte" checked> Ouvinte</label>
+                <label><input type="radio" name="modalidade" value="simposio tematico"> Simpósio Temático</label>
+                <label><input type="radio" name="modalidade" value="banner"> Banner</label>
+                <label><input type="radio" name="modalidade" value="minicurso"> Minicurso</label>
+                <label><input type="radio" name="modalidade" value="roda de conversa"> Roda de Conversa</label>
             </div>
-        
         </fieldset>
 
         <div id="check">
@@ -104,50 +80,50 @@
                 <option>Tecnologia</option>
             </select>
         </div>
+
         <br>
+        <div class="campo">
+            <label for="titulo">Título do trabalho (se aplicável):</label>
+            <input type="text" name="titulo" id="titulo">
+        </div>
+
         <br>
+        <div class="campo">
+            <label for="trabalho">Faça o upload do trabalho (se aplicável):</label>
+            <input type="file" id="trabalho" name="trabalho">
+        </div>
 
-            <div class="campo">
-                <label for="titulo">Título do trabalho (se aplicável):</label>
-                <input type="text" name="titulo" id="titulo">
-            </div>
-            <br>
-            <div class="campo">
-                <label for="trabalho">Faça o upload do trabalho (se aplicável):</label>
-                <input type="file" id="trabalho" name="trabalho">
-            </div>
-            <br>
-            <div class="campo">
-                <label for="descricao">Descrição do trabalho (se aplicável):</label>
-                <textarea rows="20" style="width: 25em;" id="descricao" name="descricao"></textarea>
-            </div>
-            <br>
+        <br>
+        <div class="campo">
+            <label for="descricao">Descrição do trabalho (se aplicável):</label>
+            <textarea rows="5" style="width: 25em;" id="descricao" name="descricao"></textarea>
+        </div>
 
-            
-
+        <br>
         <fieldset class="grupo">
-        <div>
-            <input type="checkbox"  id="aceite de termos" name="aceite de termos" required>
-            <label for="aceite de termos">Eu li os termos de inscrição e estou ciente das normas.</label>
-        </div> 
+            <div>
+                <input type="checkbox" id="aceite_termos" name="aceite_termos" required>
+                <label for="aceite_termos">Eu li os termos de inscrição e estou ciente das normas.</label>
+            </div>
         </fieldset>
-        <br>
 
-    </form>
-    
-    <form id="formCadastro">
+        <br>
         <button type="submit" class="botao">Enviar Inscrição</button>
     </form>
-
 </main>
 
 <script>
   const form = document.getElementById('formCadastro');
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault();
+    const termosAceitos = document.getElementById('aceite_termos').checked;
 
-    alert('Inscrição enviada com sucesso!');
+    if (!termosAceitos) {
+      alert('Você precisa aceitar os termos para continuar.');
+      event.preventDefault(); // impede envio
+    } else {
+      alert('Inscrição enviada com sucesso!');
+    }
   });
 </script>
 
