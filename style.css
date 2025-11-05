@@ -113,3 +113,65 @@ input[type="checkbox"] {
     box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
     text-shadow: none;
 }
+
+/* ========== MEDIA QUERIES ========== */
+@media (min-width: 768px) {
+    body {
+        padding: 2em;
+    }
+    
+    main {
+        padding: 2em;
+    }
+    
+    .botao {
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9em;
+        padding: 0.5em;
+    }
+
+    main {
+        padding: 1em;
+        border-radius: 5px;
+    }
+
+    header {
+        margin-bottom: 1em;
+    }
+
+    .campo {
+        flex: 1 1 100%;
+    }
+
+    #descricao {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .botao {
+        font-size: 1.1em;
+        padding: 0.6em;
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        font-size: 0.85em;
+        padding: 0.3em;
+    }
+
+    main {
+        padding: 0.8em;
+    }
+
+    fieldset.grupo {
+        gap: 0.5em;
+    }
+}
